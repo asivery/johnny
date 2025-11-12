@@ -7,10 +7,10 @@ var cacheName = "johnny-cache-v.2.1.0" //change this if anything has changed on 
 self.addEventListener('fetch', (e) => {
   e.respondWith(
     caches.match(e.request).then((r) => {
-        //console.log('[Service Worker] Fetching resource: '+e.request.url);
+      //console.log('[Service Worker] Fetching resource: '+e.request.url);
       return r || fetch(e.request).then((response) => {
-                return caches.open(cacheName).then((cache) => {
-          console.log('[Service Worker] Caching new resource: '+e.request.url);
+        return caches.open(cacheName).then((cache) => {
+          console.log('[Service Worker] Caching new resource: ' + e.request.url);
           cache.put(e.request, response.clone());
           return response;
         });
@@ -24,7 +24,7 @@ self.addEventListener('fetch', (e) => {
 
 
 self.addEventListener('activate', event => {
-//  console.log("fgdhjfgh");
+  //  console.log("fgdhjfgh");
   // delete any caches that aren't in expectedCaches
   // which will get rid of static-v1
   event.waitUntil(
@@ -37,8 +37,8 @@ self.addEventListener('activate', event => {
       })
 
     )).then(() => {
-        console.log('V2.1.0 now ready to handle fetches!');
-        clients.claim()
+      console.log('V2.1.0 now ready to handle fetches!');
+      clients.claim()
     })
   );
 });
