@@ -21,8 +21,6 @@ var recording = false;
 var recordingCounter = 150; //gibt an an welcher stelle
 //150 zum testen
 
-//daten die nicht zurückgesetzt werden müssen
-var bonsai = false;
 /*
 	var screenShown = false;
 	var resolution = 50; //allways square

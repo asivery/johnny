@@ -127,7 +127,6 @@ mit dank an Dr. Peter Dauscher
 					step="10" min="0" max="200" value="110"></abbr>
 			<abbr title="Name of new macro program"><input type="text" id="aufnahmeName" maxlength="5"
 					value="NN"></abbr>
-			<!--<button onclick="toggleBonsai"></button> how tf did this slip troug TODO: was this neded in any way? -->
 		</div>
 
 
@@ -155,11 +154,11 @@ mit dank an Dr. Peter Dauscher
 		<button onclick="DbRamClick()" id="DbRamButton">db-->ram</button>
 		<button onclick="DbAccClick()" id="DbAccButton">db-->acc</button>
 		<button onclick="AccDbClick()" id="AccDbButton">acc-->db</button>
-		<button onclick="NullAccClick()" id="NullAccButton" class="hiddenInBonsai">acc=0</button>
+		<button onclick="NullAccClick()" id="NullAccButton">acc=0</button>
 		<button onclick="IncAccClick()" id="IncAccButton">acc++</button>
 		<button onclick="DecAccClick()" id="DecAccButton">acc--</button>
-		<button onclick="AddAccClick()" id="AddAccButton" class="hiddenInBonsai">plus</button>
-		<button onclick="SubAccClick()" id="SubAccButton" class="hiddenInBonsai">minus</button>
+		<button onclick="AddAccClick()" id="AddAccButton" >plus</button>
+		<button onclick="SubAccClick()" id="SubAccButton">minus</button>
 		<button onclick="DbInsClick()" id="DbInsButton" class="control">db-->ins</button>
 		<button onclick="InsMcClick()" id="InsMcButton" class="control">ins-->mc</button>
 		<button onclick="InsAdClick()" id="InsAbButton" class="control">ins-->ab</button>
@@ -262,7 +261,6 @@ mit dank an Dr. Peter Dauscher
 			<!-- Modal content -->
 			<div class="modal-content">
 				<span class="close">&times;</span>
-				<button id="bonsaiModeButton" onclick="toggleBonsai()">bonsai mode</button>
 				<p>Johnny can also be installed as an app. Click<a
 						href="https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Developer_guide/Installing#the_install_user_experience"
 						target="_blank"> here</a> to learn how to install Johnny on your device</p>
@@ -337,7 +335,6 @@ mit dank an Dr. Peter Dauscher
 		<script type="text/javascript" src="./table.js"></script>
 		<script type="text/javascript" src="./buttons.js"></script>
 		<script type="text/javascript" src="./writing.js"></script>
-		<script type="text/javascript" src="./bonsai.js"></script>
 		<script type="text/javascript" src="./settings.js"></script>
 		<script>
 			{
