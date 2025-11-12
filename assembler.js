@@ -198,7 +198,6 @@ function assembler(expressions) {
         if(org > memory.length) {
             throw new Error("Emitting outside of memory!");
         }
-        console.log(`To ${org} write ${number}`);
         memory[org++] = number;
     }
     function tokenStreamAsNumber(ts) {
@@ -208,29 +207,32 @@ function assembler(expressions) {
     let lineNumber = -1;
 
     function emitExpression(index) {
+        console.log("Emit expr index", index);
         const [exprType, contents] = expressions[index];
         switch(exprType) {
             case E_LINENUM:
                 lineNumber = contents;
                 break;
-            case E_DIRECTIVE: {
+            case E_DIRECTIVE:
                 const [directiveType, directiveArgs] = contents;
                 switch(directiveType) {
                     case D_ORG:
                         org = tokenStreamAsNumber(directiveArgs[0]);
                         break;
                     case D_TIMES:
+                        let e = 0;
+                        let clonedExpression = index + 1;
+                        while(expressions[clonedExpression][0] == E_LINENUM) clonedExpression++;
                         for(let j = 0; j<tokenStreamAsNumber(directiveArgs[0]); j++) {
-                            emitExpression(index+1);
+                            e = emitExpression(clonedExpression);
                         }
-                        return index + 2;
+                        return e;
                     case D_DV:
                         valuesToRecalculate.push([org, directiveArgs[0]]);
                         emit(0);
                         break;
                 }
                 break;
-            }
             case E_INSTRUCTION:
                 const [base, recalc] = assembleInstruction(contents);
                 console.log(`Assembled instruction to base`, base, contents);
