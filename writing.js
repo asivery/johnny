@@ -1,9 +1,14 @@
 //Funktionen zum Schreiben in Busse/Ram
-function writeToRam(Value, Address) {
+function writeToRam(Value, Address, delegateStateUpdate=false) {
 	Ram[Address] = Value;
 	document.getElementsByClassName("col2")[Address].innerHTML = zeroPad(Value, ramLength + 1).substr(0, 2) + "." + zeroPad(Value, ramLength + 1).substr(2, ramLength + 1)
 	//document.getElementsByClassName("col3")[Address].innerHTML ="";
 	AddOpnd(Address);
+	if(!delegateStateUpdate)
+		updateLocalStorageRam();
+}
+
+function updateLocalStorageRam() {
 	localStorage.setItem('johnny-ram', JSON.stringify(Ram));
 }
 

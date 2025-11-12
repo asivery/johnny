@@ -195,7 +195,7 @@ mit dank an Dr. Peter Dauscher
 				</tr>
 				<tr>
 					<td>
-						<div style="width:23vw; height:50vh; overflow:auto;" id="innerRamDiv">
+						<div style="width:23vw; height:25vh; overflow:auto;" id="innerRamDiv">
 							<table cellspacing="0" cellpadding="1" border="1" width="100%">
 								<tbody id="RamTBody">
 									<!-- hier wird in table.js die Tabelle eingefügt-->
@@ -211,7 +211,8 @@ mit dank an Dr. Peter Dauscher
 					</td>
 				</tr>
 			</table>
-
+			<textarea id="assemblyCode">; Please enter your assembly code here</textarea>
+			<button onClick="runAssembly()">Assemble!</button>
 
 		</div>
 
@@ -336,6 +337,7 @@ mit dank an Dr. Peter Dauscher
 		<script type="text/javascript" src="./buttons.js"></script>
 		<script type="text/javascript" src="./writing.js"></script>
 		<script type="text/javascript" src="./settings.js"></script>
+		<script type="text/javascript" src="./assembler.js"></script>
 		<script>
 			{
 				let ua = window.navigator.userAgent;
