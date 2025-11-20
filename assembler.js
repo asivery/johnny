@@ -241,7 +241,7 @@ function assembler(expressions) {
                 emit(base);
                 break;
             case E_LABEL:
-                console.log(`Label: ${contents}`);
+                console.log(`Label: ${contents} at ${org}`);
                 labels[contents] = org;
                 break;
         }
@@ -260,8 +260,8 @@ function assembler(expressions) {
         with(labels) {
             evaluated = eval(value.map(e => e[1].toString()).join(''));
         }
-        console.log(evaluated);
-        memory[address] |= evaluated;
+        console.log(`Added ${evaluated} at address ${address}`);
+        memory[address] += evaluated;
     }
 
     return memory;
