@@ -31,7 +31,7 @@ const SYMBOLS = "+-*()";
 
 function isLetter(z) {
     const charCode = z.charCodeAt(0);
-    return charCode >= 0x41 && charCode <= 0x5A;
+    return (charCode >= 0x41 && charCode <= 0x5A) || z == '_';
 }
 
 function isLetterOrNumber(e) {
